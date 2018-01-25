@@ -4,6 +4,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -45,7 +46,7 @@ public abstract class TabbedFragment extends LoadingFragment{
         setStyleProperties();
 
         tabLayout.setBackgroundColor(getResources().getColor(tabStyler.tab_layout_background));
-        tabLayout.setTabTextColors(tabStyler.tab_text_color, tabStyler.tab_text_highlight_color);
+        tabLayout.setTabTextColors(getResources().getColor(tabStyler.tab_text_color), getResources().getColor(tabStyler.tab_text_highlight_color));
         tabLayout.setSelectedTabIndicatorColor(getResources().getColor(tabStyler.tab_indicator_color));
 
         fab = (FloatingActionButton) view.findViewById(R.id.fab);
@@ -59,7 +60,7 @@ public abstract class TabbedFragment extends LoadingFragment{
         loadComplete(true);
 
         viewPager.setOffscreenPageLimit(tabs.size() - 1);
-        viewPager.setAdapter(new TabLayoutAdapter(getActivity().getSupportFragmentManager(), tabs));
+        viewPager.setAdapter(new TabLayoutAdapter(((AppCompatActivity)getContext()).getSupportFragmentManager(), tabs));
 
         tabLayout.setupWithViewPager(viewPager);
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {

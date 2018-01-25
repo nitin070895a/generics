@@ -28,5 +28,5 @@ dependencies {
     compile "com.android.support:support-v4:$rootProject.ext.support_version"
     compile "com.android.support:recyclerview-v7:$rootProject.ext.support_version"
 
-    compile 'com.github.nitin070895a:common:7a4f3d29ae'
+    compile 'com.github.nitin070895a:common:859d631333'
 }

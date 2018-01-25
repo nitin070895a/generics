@@ -14,7 +14,8 @@
         <activity android:name=".Activity.ExampleTabbedActivity"/>
         <activity android:name=".Activity.ExampleWebViewActivity"/>
 
-        <activity android:name=".Activity.HomeScreen">
+        <activity android:name=".Activity.HomeScreen"
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>

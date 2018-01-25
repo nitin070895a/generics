@@ -20,7 +20,7 @@ import nitin.thecrazzyprogrammer.generics.R;
  * With that I mean for example when we did not get any response from our servers,
  * user have internet issues, our serves went down, there is no data to show etc.
  * <p>
- * Components : (An image, A textview, A button)
+ * Components : (An image, A textview, A button_theme_selector)
  * <p>
  * Steps to use :
  * <p>
@@ -28,7 +28,7 @@ import nitin.thecrazzyprogrammer.generics.R;
  * 2. Tweek in some properties if you like
  * 3. Show or hide the view by changing its visibility
  * <p>
- * <strong>Best practices :</strong> If you plan for a retry option make sure you hide the holder after pressing the button,
+ * <strong>Best practices :</strong> If you plan for a retry option make sure you hide the holder after pressing the button_theme_selector,
  * and after getting the response you can show it again based on your results
  */
 public class NonAvailabilityHolder {
@@ -60,7 +60,7 @@ public class NonAvailabilityHolder {
     }
 
     /**
-     * Create and show a non_availability screen (An image, a retry button and a text message) with complete controls of the views
+     * Create and show a non_availability screen (An image, a retry button_theme_selector and a text message) with complete controls of the views
      *
      * @param context Activity context
      * @param view    the view where the non_availability screen will be shown
@@ -89,10 +89,10 @@ public class NonAvailabilityHolder {
     }
 
     /**
-     * Sets the properties of the bottom button in the non availability screen
+     * Sets the properties of the bottom button_theme_selector in the non availability screen
      *
-     * @param button          the text to be written on the button
-     * @param onClickListener the action that the button will carry out
+     * @param button          the text to be written on the button_theme_selector
+     * @param onClickListener the action that the button_theme_selector will carry out
      */
     public void setButton(String button, View.OnClickListener onClickListener) {
 
@@ -121,7 +121,7 @@ public class NonAvailabilityHolder {
     }
 
     /**
-     * Show or hide the bottom button in the non availability screen
+     * Show or hide the bottom button_theme_selector in the non availability screen
      *
      * @param visibility
      */
