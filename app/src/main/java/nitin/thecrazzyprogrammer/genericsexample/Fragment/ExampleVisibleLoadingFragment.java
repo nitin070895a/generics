@@ -16,6 +16,6 @@ public class ExampleVisibleLoadingFragment extends VisibleLoadingFragment {
 
     @Override
     protected int setInnerLayout() {
-        return R.layout.example_layout;
+        return R.layout.example_fragment;
     }
 }

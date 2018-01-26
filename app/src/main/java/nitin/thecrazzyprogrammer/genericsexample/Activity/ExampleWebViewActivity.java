@@ -9,16 +9,18 @@ public class ExampleWebViewActivity extends BasicWebViewActivity {
 
     @Override
     protected String setURL() {
-        return "www.google.com";
+        return "https://www.google.com";
     }
 
+    // use this if you have html already and you don't want to load anything from the web (return null from setUrl())
     @Override
     protected String setHtmlData() {
-        return null;
+        return "<p>This is a webview example</p>";
     }
 
     @Override
     protected String setActivityTitle() {
         return "Example Web View Activity";
     }
+
 }

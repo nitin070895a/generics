@@ -3,8 +3,11 @@ package nitin.thecrazzyprogrammer.genericsexample.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentActivity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 import nitin.thecrazzyprogrammer.generics.Activities.BasicActivity;
 import nitin.thecrazzyprogrammer.genericsexample.R;
@@ -14,7 +17,7 @@ import nitin.thecrazzyprogrammer.genericsexample.R;
  */
 public class HomeScreen extends BasicActivity{
 
-    Button button;
+    LinearLayout root;
 
     @Override
     protected String setActivityTitle() {
@@ -24,19 +27,35 @@ public class HomeScreen extends BasicActivity{
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        root = (LinearLayout) findViewById(R.id.content);
 
-        button = (Button) findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                startActivity(new Intent(HomeScreen.this, ExampleTabbedActivity.class));
-            }
-        });
+        makeButton("Basic Activity", ExampleActivity.class);
+        makeButton("Fragment Activity", ExampleFragmentActivity.class);
+        makeButton("RecyclerView Activity", ExampleRecyclerViewActivity.class);
+        makeButton("WebView Activity", ExampleWebViewActivity.class);
+        makeButton("Tabbed Activity", ExampleTabbedActivity.class);
     }
 
     @Override
     protected int setLayout() {
-        return R.layout.home_screen;
+        return R.layout.example_activity;
+    }
+
+    private void makeButton(String title, final Class activity){
+
+        Button button = new Button(this);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        params.setMargins(20, 20, 20, 20);
+        button.setLayoutParams(params);
+
+        button.setText(title);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeScreen.this, activity));
+            }
+        });
+
+        root.addView(button);
     }
 }

@@ -2,6 +2,7 @@ package nitin.thecrazzyprogrammer.generics.Activities;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 
 import nitin.thecrazzyprogrammer.generics.Fragments.BasicFragment;
@@ -22,6 +23,7 @@ import nitin.thecrazzyprogrammer.generics.R;
 public abstract class BasicFragmentActivity<FragmentType extends BasicFragment> extends BasicActivity{
 
     private FragmentType fragment;
+    private final int WAIT_DELAY = 50;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -34,11 +36,22 @@ public abstract class BasicFragmentActivity<FragmentType extends BasicFragment> 
                 getToolbar().setElevation(0);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment, fragment).commit();
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                onFragmentReady();
+            }
+        }, WAIT_DELAY);
     }
 
     @Override
     protected int setLayout() {
         return R.layout.basic_fragment_activity;
+    }
+
+    protected void onFragmentReady(){
+
     }
 
     /**

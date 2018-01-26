@@ -27,6 +27,13 @@ public class TabData {
         this.fragment = fragment;
     }
 
+    public TabData(String title, int icon, LoadingFragment fragment){
+        this.title = title;
+        this.icon = icon;
+        this.fragment = fragment;
+    }
+
+
     public TabData(TabData tabData){
         this.title = tabData.getTitle();
         this.icon = tabData.getIcon();

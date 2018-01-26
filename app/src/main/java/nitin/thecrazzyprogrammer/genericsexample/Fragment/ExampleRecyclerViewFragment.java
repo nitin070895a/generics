@@ -8,12 +8,16 @@ import nitin.thecrazzyprogrammer.generics.Fragments.BasicRecyclerViewFragment;
  */
 public class ExampleRecyclerViewFragment extends BasicRecyclerViewFragment<LicenseAdapter> {
 
+    String[] titles = {"title A", "title B", "title A", "title B", "title A", "title B", "title A", "title B", "title A", "title B"};
+    String[] desc = {"title A", "title B", "title A", "title B", "title A", "title B", "title A", "title B", "title A", "title B"};
     @Override
     protected void loadOrReload() {
 
+        whenLoadingIsCompleteCallThisMethod(true);
     }
 
-    private void whenLoadingIsCompleteCallThisMethod(){
-        setAdapter(new LicenseAdapter(null, null));
+    private void whenLoadingIsCompleteCallThisMethod(boolean success){
+        loadComplete(success);
+        setAdapter(new LicenseAdapter(titles, desc));
     }
 }

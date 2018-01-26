@@ -12,8 +12,10 @@ public class ExampleWebViewFragment extends BasicWebViewFragment {
         return "www.google.com";
     }
 
+    // use this if you have html already and you don't want to load anything from the web (return null from setUrl())
     @Override
     protected String setHtmlData() {
-        return null;
+        return "<p>This is a webview example</p>";
     }
+
 }

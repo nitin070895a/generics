@@ -12,7 +12,7 @@ public class ExampleBasicFragment extends BasicFragment {
 
     @Override
     protected int setLayout() {
-        return R.layout.example_layout;
+        return R.layout.example_fragment;
     }
 
     @Override

@@ -19,7 +19,7 @@ import nitin.thecrazzyprogrammer.generics.R;
 public abstract class BasicWebViewFragment extends BasicFragment{
 
     private ProgressBar progressBar;
-    private WebView webView;
+    public WebView webView;
 
     @Override
     protected void onCreateView(View view) {
