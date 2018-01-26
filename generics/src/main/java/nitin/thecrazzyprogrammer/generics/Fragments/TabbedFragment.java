@@ -23,6 +23,21 @@ import nitin.thecrazzyprogrammer.generics.Models.TabStyler.TabsStyle;
 
 /**
  * Created by Nitin Khurana on 1/16/2018.
+ *
+ * This class gives a tabbed activity with dynamic tabs and loading mechanism
+ * Also you get a progress bar and a non availability screen with the same
+ *
+ * You can also do whole bunch of customization with the tabs like coloring, gravity and styling
+ * to do the customization use {@link #setStyleProperties()} methods using the {@link #tabStyler} instance
+ *
+ * You also get some pre-made fab styles like simple, icon only, icon with text or you can set the custom
+ * tab design using DIY styling and overriding these methods
+ * {@link #customTabLayout(TabData)} to set the layout for a tab
+ * {@link #normalTabDesign(int)} to set the style in normal state
+ * {@link #highlightTabDesign(int)} to set the style in highlighted state
+ *
+ * Bonus : you also get a fab button but it is hidden by default you can enable it using {@link #showFab()}
+ * and customize using {@link #setFab(int, View.OnClickListener)}
  */
 public abstract class TabbedFragment extends LoadingFragment{
 
@@ -55,6 +70,10 @@ public abstract class TabbedFragment extends LoadingFragment{
 
     }
 
+    /**
+     * Use this method after loading is completed to set the tablayout
+     * @param tabs the array list of tabs
+     */
     protected void setUpTabs(final ArrayList<TabData> tabs){
 
         loadComplete(true);
@@ -126,14 +145,25 @@ public abstract class TabbedFragment extends LoadingFragment{
         }
     }
 
+    /**
+     * Shows the fab button with an animation
+     */
     protected void showFab(){
         fab.show();
     }
 
+    /**
+     * Hides the fab button with an animation
+     */
     protected void hideFab(){
         fab.hide();
     }
 
+    /**
+     * Sets and enables the fab button
+     * @param icon the icon to be shown in the fab
+     * @param onClickListener the action to be done on clicking the fab button
+     */
     protected void setFab(int icon, View.OnClickListener onClickListener){
         if(icon != 0)
             fab.setImageResource(icon);
@@ -141,8 +171,24 @@ public abstract class TabbedFragment extends LoadingFragment{
         fab.setOnClickListener(onClickListener);
     }
 
+    /**
+     * Customize the tab using {@link #tabStyler} instance
+     * <br>
+     * you can change : colors, gravity (top, bottom), style (normal, icon only, icom with text, diy)
+     * <br>
+     *  you can set the custom tab design using DIY styling and overriding these methods
+     * {@link #customTabLayout(TabData)} to set the layout for a tab
+     * {@link #normalTabDesign(int)} to set the style in normal state
+     * {@link #highlightTabDesign(int)} to set the style in highlighted state
+     */
     protected abstract void setStyleProperties();
 
+    /**
+     * Override this method when using DIY styling ignore otherwise
+     * This method will be called for each tab
+     * @param data the tab data for each tab
+     * @return the customView to be set to the tab
+     */
     protected View customTabLayout(TabData data){
 
         return null;
@@ -195,6 +241,13 @@ public abstract class TabbedFragment extends LoadingFragment{
 
     }
 
+    /**
+     * Override this method when using DIY styling ignore otherwise
+     * This method will be called for each tab
+     * <br>
+     * This is how a normal tab would look like
+     * @param i the tab position
+     */
     protected void normalTabDesign(int i){
 
         ((ImageView) (tabLayout.getTabAt(i).getCustomView().findViewById(R.id.icon))).setColorFilter(ContextCompat.getColor(getContext(),tabStyler.tab_image_tint));
@@ -204,6 +257,12 @@ public abstract class TabbedFragment extends LoadingFragment{
         tabLayout.getTabAt(i).getCustomView().findViewById(R.id.icon).setScaleX(1.0f);
     }
 
+    /**
+     * Override this method when using DIY styling ignore otherwise
+     * <br>
+     * This is how a highlighted tab would look like
+     * @param i the tab number to be highlighted
+     */
     protected void highlightTabDesign(int i){
 
         ((ImageView) (tabLayout.getTabAt(i).getCustomView().findViewById(R.id.icon))).setColorFilter(ContextCompat.getColor(getContext(), tabStyler.tab_image_highlight_tint));
@@ -226,6 +285,10 @@ public abstract class TabbedFragment extends LoadingFragment{
         }
     }
 
+    /**
+     * Gets the tab layout of the fragment / activity
+     * @return the tablayout
+     */
     public TabLayout getTabLayout() {
         return tabLayout;
     }

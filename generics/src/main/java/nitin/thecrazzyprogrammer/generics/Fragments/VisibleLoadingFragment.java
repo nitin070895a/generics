@@ -5,8 +5,9 @@ import android.os.Handler;
 /**
  * Created by Nitn Khurana on 1/22/2018.
  *
- * Only loads when visible to user
+ * <p>Only loads when visible to user
  * Should be used for fragments fed to Tabbed Fragment or Fragments in a tab layout using FragmentPagerAdapter in general
+ * </p>
  */
 public abstract class VisibleLoadingFragment extends LoadingFragment{
 
