@@ -8,13 +8,13 @@ import nitin.thecrazzyprogrammer.generics.R;
 /**
  * Created by Nitin Khurana on 1/19/2018.
  *
- * The fragment to be extended where you want only one recycler view in your fragment
- *
+ * <p>The fragment to be extended where you want only one recycler view in your fragment</p>
+ * <br>
  * Features :
- *
- * 1. No need to create an .xml file
- * 2. Now you only need to create the adapter for the recycler view and everything is handled by this class
- *
+ *<ol>
+ *     <li>No need to create an .xml file</li>
+ *      <li>Now you only need to create the adapter for the recycler view and everything is handled by this class</li>
+ *</ol>
  */
 public abstract class BasicRecyclerViewFragment<AdapterType extends RecyclerView.Adapter> extends LoadingFragment{
 

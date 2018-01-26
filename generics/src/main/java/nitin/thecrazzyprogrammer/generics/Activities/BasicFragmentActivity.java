@@ -12,13 +12,15 @@ import nitin.thecrazzyprogrammer.generics.R;
 
 /**
  * Created by Nitin Khurana on 1/19/2018.
- *
- * This activity should be used where you have only one fragment in your activity
+ *<br>
+ * <p>This activity should be used where you have only one fragment in your activity
  * You can extend this activity to get the following features :
- *
- * 1. Toolbar
- * 2. No need to override Activity onCreate() method
- * 3. No need to create an xml file for your fragment activity
+ *</p>
+ * <ol>
+ *     <li>Toolbar</li>
+ *     <li>Back press code</li>
+ *     <li>No need to create an xml file for your fragment activity</li>
+ * </ol>
  */
 public abstract class BasicFragmentActivity<FragmentType extends BasicFragment> extends BasicActivity{
 
@@ -50,6 +52,9 @@ public abstract class BasicFragmentActivity<FragmentType extends BasicFragment> 
         return R.layout.basic_fragment_activity;
     }
 
+    /**
+     * Gets called when fragment is attached to the activity and is ready to be used
+     */
     protected void onFragmentReady(){
 
     }

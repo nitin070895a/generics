@@ -11,19 +11,19 @@ import nitin.thecrazzyprogrammer.generics.R;
 /**
  * Created by Nitin Khurana on 1/18/2018.
  *
- * A recycler view adapter for showing Third party licences
+ * A recycler view adapter to show a title and a description in a cardview
  */
-public class LicenseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
+public class CardViewRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 
     private String titles[];
     private String licenses[];
 
     /**
      * Pass both parameters in same order
-     * @param titles All the titles of the library
-     * @param licences All the licenses
+     * @param titles All the titles
+     * @param licences All the sub titles or descriptions
      */
-    public LicenseAdapter(String[] titles, String licences[]){
+    public CardViewRecyclerAdapter(String[] titles, String licences[]){
 
         this.titles = titles;
         this.licenses = licences;
@@ -32,7 +32,7 @@ public class LicenseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     /**
      * ViewHolder for the license item
      */
-    public class LicenseViewHolder extends RecyclerView.ViewHolder {
+    private class LicenseViewHolder extends RecyclerView.ViewHolder {
 
         TextView title,license;
 

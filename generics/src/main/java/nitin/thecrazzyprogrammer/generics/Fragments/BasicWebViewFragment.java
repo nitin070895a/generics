@@ -5,16 +5,18 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
+import nitin.thecrazzyprogrammer.generics.Activities.BasicWebViewActivity;
 
 import nitin.thecrazzyprogrammer.generics.R;
 
 /**
  * Created by Nitin Khurana on 1/19/2018.
- *
- * Common Fragment to be extended in the app where you want a simple fragment with just a webview to show some web content
+ *<p>
+ * Common Fragment to be extended in the app where you want a simple fragment with just a webview to show some web/html content
  * Simply extend this fragment where ever you want to have only a webview in the fragment
- *
- * if you want to have an activity not a fragment use {@link BasicWebViewFragment} instead
+ *<p/>
+ * <br>
+ * if you want to have an activity not a fragment use {@link BasicWebViewActivity} instead
  */
 public abstract class BasicWebViewFragment extends BasicFragment{
 
@@ -49,7 +51,7 @@ public abstract class BasicWebViewFragment extends BasicFragment{
     }
 
     /**
-     * Sets the webview settings
+     * Override this method to set the webview settings
      */
     protected void setWebViewSettings(){
 
@@ -70,9 +72,20 @@ public abstract class BasicWebViewFragment extends BasicFragment{
 
     /**
      * Sets the url to be loaded in the webview
+     * <p>
+     *     if you want to load HTML data use {@link #setHtmlData()} and return null from this method
+     * </p>
      * @return The url to load
      */
     protected abstract String setURL();
 
+    /**
+     * Sets the data to be loaded in the web view
+     * <p>
+     *     if you want to load a URL use {@link #setURL()} and return null from this method
+     * </p>
+     * @return
+     */
     protected abstract String setHtmlData();
+
 }

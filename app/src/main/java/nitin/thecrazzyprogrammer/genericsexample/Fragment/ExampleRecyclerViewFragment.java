@@ -1,12 +1,12 @@
 package nitin.thecrazzyprogrammer.genericsexample.Fragment;
 
-import nitin.thecrazzyprogrammer.generics.Adapters.LicenseAdapter;
+import nitin.thecrazzyprogrammer.generics.Adapters.CardViewRecyclerAdapter;
 import nitin.thecrazzyprogrammer.generics.Fragments.BasicRecyclerViewFragment;
 
 /**
  * Created by Nitin Khurana on 1/19/2018.
  */
-public class ExampleRecyclerViewFragment extends BasicRecyclerViewFragment<LicenseAdapter> {
+public class ExampleRecyclerViewFragment extends BasicRecyclerViewFragment<CardViewRecyclerAdapter> {
 
     String[] titles = {"title A", "title B", "title A", "title B", "title A", "title B", "title A", "title B", "title A", "title B"};
     String[] desc = {"desc A", "desc B", "desc A", "desc B", "desc A", "desc B", "desc A", "desc B", "desc A", "desc B"};
@@ -18,6 +18,6 @@ public class ExampleRecyclerViewFragment extends BasicRecyclerViewFragment<Licen
 
     private void whenLoadingIsCompleteCallThisMethod(boolean success){
         loadComplete(success);
-        setAdapter(new LicenseAdapter(titles, desc));
+        setAdapter(new CardViewRecyclerAdapter(titles, desc));
     }
 }

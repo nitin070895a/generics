@@ -1,7 +1,6 @@
 package nitin.thecrazzyprogrammer.generics.Activities;
 
 import android.os.Bundle;
-import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -12,22 +11,25 @@ import nitin.thecrazzyprogrammer.generics.R;
 
 /**
  * Created by Nitin Khurana on 1/18/2018.
- *
+ *<br>
+ * <p>
  * The Activity to be extend in every activity instead of Appcompat Activity
- *
- * Now you don't need to create a toolbar instance in your activities. It handles
- * it by itself. If you want to customise the toolbar you can override {@link #customiseToolbar()} method
- *
+ *<br>
+ * Now you don't need to create a toolbar instance in your activities. It handles it by itself.
+ * </p>
+ * <p>if you want to customise the toolbar you can override {@link #customiseToolbar()} method</p>
+ *<br>
  * It handles :
- *
- * 1. Back press from tool bar
- * 2. Finds and initialize the toolbar
- * 3. Sets title for the toolbar which you can change from the child activity of this class
- *
- * SetContentView should not be used
- *
- *
- * NOTE : Toolbar's id should always be 'toolbar' in your .xml file
+ *<br>
+ * <ol>
+ * <li>Back press from tool bar</li>
+ * <li>Finds and initialize the toolbar</li>
+ * <li>Sets title for the toolbar which you can change from the child activity of this class</li>
+ * </ol>
+ *<br>
+ * <b>Note</b> : SetContentView should not be used
+ *<br>
+ * <b>Note</b> : Toolbar's id should always be 'toolbar' in your .xml file
  */
 public abstract class BasicActivity extends AppCompatActivity{
 
@@ -85,8 +87,57 @@ public abstract class BasicActivity extends AppCompatActivity{
      */
     protected abstract int setLayout();
 
+    /**
+     * Displays log with the Activity tag in Log.e()
+     * @param msg The message to be logged
+     */
     protected void showLog(String msg){
 
         Log.e(TAG, "" + msg);
+    }
+
+    /**
+     * Displays log with the Activity tag in Log.e()
+     * @param msg The message to be logged
+     */
+    protected void showLogE(String msg){
+
+        Log.e(TAG, "" + msg);
+    }
+
+    /**
+     * Displays log with the Activity tag in Log.i()
+     * @param msg The message to be logged
+     */
+    protected void showLogI(String msg){
+
+        Log.i(TAG, "" + msg);
+    }
+
+    /**
+     * Displays log with the Activity tag in Log.d()
+     * @param msg The message to be logged
+     */
+    protected void showLogD(String msg){
+
+        Log.d(TAG, "" + msg);
+    }
+
+    /**
+     * Displays log with the Activity tag in Log.v()
+     * @param msg The message to be logged
+     */
+    protected void showLogV(String msg){
+
+        Log.v(TAG, "" + msg);
+    }
+
+    /**
+     * Displays log with the Activity tag in Log.w()
+     * @param msg The message to be logged
+     */
+    protected void showLogW(String msg){
+
+        Log.w(TAG, "" + msg);
     }
 }

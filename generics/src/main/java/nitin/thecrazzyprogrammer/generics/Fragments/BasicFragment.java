@@ -11,18 +11,19 @@ import android.view.ViewGroup;
 
 /**
  * Created by Nitin Khurana on 1/19/2018.
- *
+ *<p>
  * The Fragment to be extended in every Fragment instead of Android's Fragment
- *
- * It handles :
- *
- * 1. Back press from tool bar
- * 2. Finds and initialize the toolbar
- * 3. Sets title for the toolbar which you can change from the child activity of this class
- *
- * {@link #onCreateView(View)} is optional in the child activities
- * {@link #onCreateView(LayoutInflater, ViewGroup, Bundle)} should not be overriden in child activities
- *
+ *</p>
+ * <br>
+ * It gives :
+ *<br>
+ * <ol>
+ *     <li>Reliable Context</li>
+ *     <li>Class specific Log methods</li>
+ * </ol>
+ *<br>
+ * <b>Note : </b>{@link #onCreateView(View)} is optional in the child activities
+ * <b>Note : </b>{@link #onCreateView(LayoutInflater, ViewGroup, Bundle)} should not be overriden in child activities
  */
 public abstract class BasicFragment extends Fragment{
 
@@ -80,8 +81,57 @@ public abstract class BasicFragment extends Fragment{
      */
     protected abstract void onCreateView(View view);
 
+    /**
+     * Displays log with the Activity tag in Log.e()
+     * @param msg The message to be logged
+     */
     protected void showLog(String msg){
 
         Log.e(TAG, "" + msg);
+    }
+
+    /**
+     * Displays log with the Activity tag in Log.e()
+     * @param msg The message to be logged
+     */
+    protected void showLogE(String msg){
+
+        Log.e(TAG, "" + msg);
+    }
+
+    /**
+     * Displays log with the Activity tag in Log.i()
+     * @param msg The message to be logged
+     */
+    protected void showLogI(String msg){
+
+        Log.i(TAG, "" + msg);
+    }
+
+    /**
+     * Displays log with the Activity tag in Log.d()
+     * @param msg The message to be logged
+     */
+    protected void showLogD(String msg){
+
+        Log.d(TAG, "" + msg);
+    }
+
+    /**
+     * Displays log with the Activity tag in Log.v()
+     * @param msg The message to be logged
+     */
+    protected void showLogV(String msg){
+
+        Log.v(TAG, "" + msg);
+    }
+
+    /**
+     * Displays log with the Activity tag in Log.w()
+     * @param msg The message to be logged
+     */
+    protected void showLogW(String msg){
+
+        Log.w(TAG, "" + msg);
     }
 }
