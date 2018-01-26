@@ -9,7 +9,7 @@ import nitin.thecrazzyprogrammer.generics.Fragments.BasicRecyclerViewFragment;
 public class ExampleRecyclerViewFragment extends BasicRecyclerViewFragment<LicenseAdapter> {
 
     String[] titles = {"title A", "title B", "title A", "title B", "title A", "title B", "title A", "title B", "title A", "title B"};
-    String[] desc = {"title A", "title B", "title A", "title B", "title A", "title B", "title A", "title B", "title A", "title B"};
+    String[] desc = {"desc A", "desc B", "desc A", "desc B", "desc A", "desc B", "desc A", "desc B", "desc A", "desc B"};
     @Override
     protected void loadOrReload() {
 
