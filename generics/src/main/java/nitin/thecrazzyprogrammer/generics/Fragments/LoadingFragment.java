@@ -5,8 +5,8 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 
+import nitin.thecrazzyprogrammer.common.NonAvailabilityHolder;
 import nitin.thecrazzyprogrammer.generics.R;
-import nitin.thecrazzyprogrammer.generics.Views.NonAvailabilityHolder;
 
 /**
  * Created by Nitin Khurana on 1/21/2018.
@@ -92,13 +92,6 @@ public abstract class LoadingFragment extends BasicFragment{
     }
 
     /**
-     * @return Gives the NonAvailability screen of this fragment from that you can do whole bunch of stuff like changing the image etc.
-     */
-    public NonAvailabilityHolder getNonAvailabilityHolder() {
-        return nonAvailabilityHolder;
-    }
-
-    /**
      * Should be called when API response or loading stuff is completed and when the progress bar should be removed
      * Removes progress bar, show a non availability screen based on the boolean pass
      * @param success unset if have either no data to show or there was a problem getting the data like no internet connection
@@ -132,4 +125,10 @@ public abstract class LoadingFragment extends BasicFragment{
      */
     protected abstract int setInnerLayout();
 
+    /**
+     * @return Gives the NonAvailability screen of this fragment from that you can do whole bunch of stuff like changing the image etc.
+     */
+    protected NonAvailabilityHolder getNonAvailabilityHolder() {
+        return nonAvailabilityHolder;
+    }
 }
