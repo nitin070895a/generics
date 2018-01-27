@@ -1,12 +1,14 @@
 package nitin.thecrazyprogrammer.generics.Activities;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import nitin.thecrazyprogrammer.generics.R;
 
@@ -37,6 +39,8 @@ public abstract class BasicActivity extends AppCompatActivity{
     private String TAG = this.getClass().getSimpleName();
     private Toolbar toolbar;
 
+    boolean doubleBackToExitPressedOnce = false;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +69,30 @@ public abstract class BasicActivity extends AppCompatActivity{
         if(menu_res != 0)
             getMenuInflater().inflate(menu_res, menu);
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        if(!doubleBackToExit()){
+            super.onBackPressed();
+            return;
+        }
+
+        if (doubleBackToExitPressedOnce){
+            super.onBackPressed();
+            return;
+        }
+
+        doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Press BACK again to exit.", Toast.LENGTH_LONG).show();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce = false;
+            }
+        }, 1000);
+
     }
 
     /**
@@ -102,6 +130,10 @@ public abstract class BasicActivity extends AppCompatActivity{
      */
     protected int setMenuResource(){
         return 0;
+    }
+
+    protected boolean doubleBackToExit(){
+        return false;
     }
 
     /**
