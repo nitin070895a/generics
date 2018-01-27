@@ -60,7 +60,8 @@ public abstract class NavigationViewActivity extends BasicActivity implements Na
         if(setNavHeaderView() != 0)
             customizeNavHeader(navigationView.inflateHeaderView(setNavHeaderView()));
 
-        openFragment(null, setLandingFragment());
+        landingFragment = setLandingFragment();
+        openFragment(null, landingFragment);
     }
 
     @Override

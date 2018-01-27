@@ -33,8 +33,8 @@ public class HomeScreen extends NavigationViewActivity{
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        doubleBackToExit = false;
-        //backToLandingFragment = true;
+        doubleBackToExit = true;
+        backToLandingFragment = true;
 
     }
 
