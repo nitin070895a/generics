@@ -1,26 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<RelativeLayout
+    android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:id="@+id/content"
-        android:layout_height="match_parent"
-        android:gravity="center_horizontal">
+    <include layout="@layout/toolbar"/>
 
-        <include layout="@layout/toolbar"/>
+    <include layout="@layout/hello_world"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:textStyle="italic"
-            android:textColor="?colorAccent"
-            android:text="Hello World!"/>
-
-    </LinearLayout>
-
-</ScrollView>
+</RelativeLayout>

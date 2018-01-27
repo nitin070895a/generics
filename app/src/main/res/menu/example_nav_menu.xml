@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/fHome"
+        android:icon="@drawable/android"
+        android:title="Home"/>
+
+    <item
+        android:id="@+id/bFragment"
+        android:icon="@drawable/android"
+        android:title="Basic Fragment"/>
+
+    <item
+        android:id="@+id/lFragment"
+        android:icon="@drawable/android"
+        android:title="Loading Fragment"/>
+
+    <item
+        android:id="@+id/rFragment"
+        android:icon="@drawable/android"
+        android:title="RecyclerView Fragment"/>
+
+    <item
+        android:id="@+id/wFragment"
+        android:icon="@drawable/android"
+        android:title="WebView Fragment"/>
+
+    <item
+        android:id="@+id/tFragment"
+        android:icon="@drawable/android"
+        android:title="Tabbed Fragment"/>
+
+    <item
+        android:id="@+id/cActivity"
+        android:icon="@drawable/android"
+        android:title="Collapsing Toolbar Activity"/>
+
+</menu>

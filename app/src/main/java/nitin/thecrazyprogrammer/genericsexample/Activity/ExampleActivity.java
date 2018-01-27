@@ -22,4 +22,5 @@ public class ExampleActivity extends BasicActivity {
     protected int setMenuResource() {
         return R.menu.example_menu;
     }
+
 }

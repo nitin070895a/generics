@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.MenuItem;
@@ -23,9 +24,12 @@ public abstract class NavigationViewActivity extends BasicActivity implements Na
     FloatingActionButton fab;
 
     Fragment fragment;
+    Fragment landingFragment;
+
+    protected boolean backToLandingFragment = false;
 
     @Override
-    protected int setLayout() {
+    protected final int setLayout() {
         return R.layout.nav_drawer_activity;
     }
 
@@ -59,7 +63,38 @@ public abstract class NavigationViewActivity extends BasicActivity implements Na
         openFragment(null, setLandingFragment());
     }
 
+    @Override
+    public void onBackPressed() {
+
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
+            return;
+        }
+
+        if(!backToLandingFragment){
+            super.onBackPressed();
+            return;
+        }
+
+        if(fragment == landingFragment){
+            super.onBackPressed();
+            return;
+        }
+        else
+            openFragment(getActivityTitle().toString(), landingFragment);
+
+    }
+
+    @Override
+    public final boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        item.setCheckable(true);
+        navigationView.setCheckedItem(item.getItemId());
+        return onNavItemSelected(item);
+    }
+
     protected void openFragment(String title, Fragment fragment){
+
+        this.fragment = fragment;
 
         try {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment, fragment).commit();
@@ -69,6 +104,10 @@ public abstract class NavigationViewActivity extends BasicActivity implements Na
 
         if (title != null)
             getToolbar().setTitle(title);
+
+        if (drawerLayout.isDrawerOpen(GravityCompat.START))
+            drawerLayout.closeDrawer(GravityCompat.START);
+
     }
 
     /**
@@ -108,6 +147,8 @@ public abstract class NavigationViewActivity extends BasicActivity implements Na
     protected abstract int setNavMenu();
 
     protected abstract Fragment setLandingFragment();
+
+    protected abstract boolean onNavItemSelected(MenuItem item);
 
     public Fragment getFragment() {
         return fragment;

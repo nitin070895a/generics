@@ -2,67 +2,84 @@ package nitin.thecrazyprogrammer.genericsexample.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
+import android.widget.Toast;
 
-import nitin.thecrazyprogrammer.genericsexample.R;
-import nitin.thecrazyprogrammer.generics.Activities.BasicActivity;
+import nitin.thecrazyprogrammer.generics.Activities.NavigationViewActivity;
+import nitin.thecrazyprogrammer.genericsexample.Fragment.ExampleBasicFragment;
+import nitin.thecrazyprogrammer.genericsexample.Fragment.ExampleLoadingFragment;
+import nitin.thecrazyprogrammer.genericsexample.Fragment.ExampleRecyclerViewFragment;
+import nitin.thecrazyprogrammer.genericsexample.Fragment.ExampleTabbedFragment;
+import nitin.thecrazyprogrammer.genericsexample.Fragment.ExampleWebViewFragment;
+import nitin.thecrazyprogrammer.genericsexample.Fragment.HomeFragment;
 import nitin.thecrazyprogrammer.genericsexample.R;
 
 /**
  * Created by Nitin Khurana on 1/25/2018.
  */
-public class HomeScreen extends BasicActivity{
-
-    LinearLayout root;
+public class HomeScreen extends NavigationViewActivity{
 
     @Override
     protected String setActivityTitle() {
-        return "Home Screen";
+        return "Example Nav Drawer Activity";
     }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        root = (LinearLayout) findViewById(R.id.content);
 
-        makeButton("Basic Activity", ExampleActivity.class);
-        makeButton("Loading Activity", ExampleLoadingActivity.class);
-        makeButton("Basic Fragment Activity", ExampleFragmentActivity.class);
-        makeButton("Basic RecyclerView Activity", ExampleRecyclerViewActivity.class);
-        makeButton("Basic WebView Activity", ExampleWebViewActivity.class);
-        makeButton("Tabbed Activity", ExampleTabbedActivity.class);
-        makeButton("Collapsing Toolbar Activity", ExampleCollapsingToolbarActivity.class);
+        doubleBackToExit = false;
+        //backToLandingFragment = true;
+
     }
 
     @Override
-    protected int setLayout() {
-        return R.layout.example_activity;
+    protected int setNavMenu() {
+        return R.menu.example_nav_menu;
     }
 
-    private void makeButton(String title, final Class activity){
+    @Override
+    protected int setNavHeaderView() {
+        return R.layout.exmaple_nav_header;
+    }
 
-        Button button = new Button(this);
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        params.setMargins(20, 20, 20, 20);
-        button.setLayoutParams(params);
+    @Override
+    protected void customizeNavHeader(View header) {
+        ((ImageView) header.findViewById(R.id.image)).setImageResource(R.drawable.cloud_new);
+    }
 
-        button.setText(title);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(HomeScreen.this, activity));
-            }
-        });
-
-        root.addView(button);
+    @Override
+    protected Fragment setLandingFragment() {
+        return new HomeFragment();
     }
 
     @Override
     protected int setMenuResource() {
         return R.menu.example_menu;
+    }
+
+    @Override
+    public boolean onNavItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()){
+
+            case R.id.fHome : openFragment(item.getTitle().toString(), new HomeFragment()); break;
+            case R.id.bFragment : openFragment(item.getTitle().toString(), new ExampleBasicFragment()); break;
+            case R.id.lFragment : openFragment(item.getTitle().toString(), new ExampleLoadingFragment()); break;
+            case R.id.rFragment : openFragment(item.getTitle().toString(), new ExampleRecyclerViewFragment()); break;
+            case R.id.wFragment : openFragment(item.getTitle().toString(), new ExampleWebViewFragment()); break;
+            case R.id.tFragment : openFragment(item.getTitle().toString(), new ExampleTabbedFragment()); break;
+            case R.id.cActivity : startActivity(new Intent(this, ExampleCollapsingToolbarActivity.class)); break;
+
+
+            default: return false;
+        }
+
+        return true;
     }
 }

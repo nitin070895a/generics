@@ -9,7 +9,7 @@ public class ExampleWebViewFragment extends BasicWebViewFragment {
 
     @Override
     protected String setURL() {
-        return "www.google.com";
+        return "https://www.google.com";
     }
 
     // use this if you have html already and you don't want to load anything from the web (return null from setUrl())

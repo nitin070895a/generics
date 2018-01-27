@@ -39,7 +39,10 @@ public abstract class BasicActivity extends AppCompatActivity{
     private String TAG = this.getClass().getSimpleName();
     private Toolbar toolbar;
 
-    boolean doubleBackToExitPressedOnce = false;
+    protected boolean doubleBackToExit = false;
+    private boolean doubleBackToExitPressedOnce = false;
+
+    private String activityTitle;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -48,7 +51,8 @@ public abstract class BasicActivity extends AppCompatActivity{
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(setActivityTitle());
+        activityTitle = setActivityTitle();
+        getSupportActionBar().setTitle(activityTitle);
         customiseToolbar();
 
     }
@@ -74,7 +78,7 @@ public abstract class BasicActivity extends AppCompatActivity{
     @Override
     public void onBackPressed() {
 
-        if(!doubleBackToExit()){
+        if(!doubleBackToExit){
             super.onBackPressed();
             return;
         }
@@ -85,7 +89,7 @@ public abstract class BasicActivity extends AppCompatActivity{
         }
 
         doubleBackToExitPressedOnce = true;
-        Toast.makeText(this, "Press BACK again to exit.", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Press BACK again to exit.", Toast.LENGTH_SHORT).show();
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -96,11 +100,11 @@ public abstract class BasicActivity extends AppCompatActivity{
     }
 
     /**
-     * Gets the toolbar of the activity
-     * @return toolbar of the activity
+     * If you want to add a menu to your activity override this method
+     * @return the resource id of the menu.xml file (return 0 for no menu)
      */
-    protected Toolbar getToolbar() {
-        return toolbar;
+    protected int setMenuResource(){
+        return 0;
     }
 
     /**
@@ -125,16 +129,17 @@ public abstract class BasicActivity extends AppCompatActivity{
     protected abstract int setLayout();
 
     /**
-     * If you want to add a menu to your activity override this method
-     * @return the resource id of the menu.xml file (return 0 for no menu)
+     * Gets the toolbar of the activity
+     * @return toolbar of the activity
      */
-    protected int setMenuResource(){
-        return 0;
+    protected Toolbar getToolbar() {
+        return toolbar;
     }
 
-    protected boolean doubleBackToExit(){
-        return false;
+    public String getActivityTitle() {
+        return activityTitle;
     }
+
 
     /**
      * Displays log with the Activity tag in Log.e()
