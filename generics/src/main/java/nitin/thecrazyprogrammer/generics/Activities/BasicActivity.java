@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 
 import nitin.thecrazyprogrammer.generics.R;
@@ -58,6 +59,14 @@ public abstract class BasicActivity extends AppCompatActivity{
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        int menu_res = setMenuResource();
+        if(menu_res != 0)
+            getMenuInflater().inflate(menu_res, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
     /**
      * Gets the toolbar of the activity
      * @return toolbar of the activity
@@ -86,6 +95,14 @@ public abstract class BasicActivity extends AppCompatActivity{
      * @return the layout that you want to inflate in your activity
      */
     protected abstract int setLayout();
+
+    /**
+     * If you want to add a menu to your activity override this method
+     * @return the resource id of the menu.xml file (return 0 for no menu)
+     */
+    protected int setMenuResource(){
+        return 0;
+    }
 
     /**
      * Displays log with the Activity tag in Log.e()

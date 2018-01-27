@@ -18,4 +18,8 @@ public class ExampleActivity extends BasicActivity {
         return R.layout.example_activity;
     }
 
+    @Override
+    protected int setMenuResource() {
+        return R.menu.example_menu;
+    }
 }

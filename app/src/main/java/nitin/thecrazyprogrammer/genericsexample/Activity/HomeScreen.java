@@ -60,4 +60,9 @@ public class HomeScreen extends BasicActivity{
 
         root.addView(button);
     }
+
+    @Override
+    protected int setMenuResource() {
+        return R.menu.example_menu;
+    }
 }

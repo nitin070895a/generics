@@ -35,4 +35,9 @@ public class ExampleCollapsingToolbarActivity extends CollapsingToolbarActivity 
     protected String setActivityTitle() {
         return "Example Collapsing Toolbar Activity";
     }
+
+    @Override
+    protected int setMenuResource() {
+        return R.menu.example_menu;
+    }
 }
