@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:textStyle="italic"
-        android:textColor="@color/colorAccent"
+        android:textColor="?colorAccent"
         android:text="Hello World!"/>
 
 </RelativeLayout>
