@@ -69,22 +69,19 @@ public abstract class CollapsingToolbarActivity extends BasicActivity implements
     protected void customiseToolbar() {
         super.customiseToolbar();
 
-        /*CollapsingToolbarLayout.LayoutParams params = (CollapsingToolbarLayout.LayoutParams) getToolbar().getLayoutParams();
+        getToolbar().setBackgroundColor(getResources().getColor(R.color.transparent));
+        CollapsingToolbarLayout.LayoutParams params = (CollapsingToolbarLayout.LayoutParams) getToolbar().getLayoutParams();
         params.setCollapseMode(CollapsingToolbarLayout.LayoutParams.COLLAPSE_MODE_PIN);
         getToolbar().setLayoutParams(params);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
-            getToolbar().setElevation(0);
-        getToolbar().requestLayout();*/
+        getToolbar().requestLayout();
     }
 
     protected void onCollapse(){
 
-        //getSupportActionBar().show();
     }
 
     protected void onExapand(){
 
-       // getSupportActionBar().hide();
     }
 
     protected void onFragmentReady(){
