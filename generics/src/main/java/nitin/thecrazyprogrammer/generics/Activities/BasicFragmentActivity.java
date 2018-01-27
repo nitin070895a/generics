@@ -25,7 +25,7 @@ import nitin.thecrazyprogrammer.generics.R;
 public abstract class BasicFragmentActivity<FragmentType extends BasicFragment> extends BasicActivity{
 
     private FragmentType fragment;
-    private final int WAIT_DELAY = 50;
+    public static final int WAIT_DELAY = 50;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

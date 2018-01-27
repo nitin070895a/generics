@@ -17,6 +17,7 @@
         <activity android:name=".Activity.ExampleRecyclerViewActivity"/>
         <activity android:name=".Activity.ExampleTabbedActivity"/>
         <activity android:name=".Activity.ExampleWebViewActivity"/>
+        <activity android:name=".Activity.ExampleCollapsingToolbarActivity"/>
 
 
         <activity android:name=".Activity.HomeScreen"

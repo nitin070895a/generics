@@ -30,11 +30,12 @@ public class HomeScreen extends BasicActivity{
         root = (LinearLayout) findViewById(R.id.content);
 
         makeButton("Basic Activity", ExampleActivity.class);
-        makeButton("Example Loading Activity", ExampleLoadingActivity.class);
-        makeButton("Fragment Activity", ExampleFragmentActivity.class);
-        makeButton("RecyclerView Activity", ExampleRecyclerViewActivity.class);
-        makeButton("WebView Activity", ExampleWebViewActivity.class);
+        makeButton("Loading Activity", ExampleLoadingActivity.class);
+        makeButton("Basic Fragment Activity", ExampleFragmentActivity.class);
+        makeButton("Basic RecyclerView Activity", ExampleRecyclerViewActivity.class);
+        makeButton("Basic WebView Activity", ExampleWebViewActivity.class);
         makeButton("Tabbed Activity", ExampleTabbedActivity.class);
+        makeButton("Collapsing Toolbar Activity", ExampleCollapsingToolbarActivity.class);
     }
 
     @Override
