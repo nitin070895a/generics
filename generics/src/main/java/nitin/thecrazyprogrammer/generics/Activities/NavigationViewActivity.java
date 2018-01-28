@@ -77,7 +77,7 @@ public abstract class NavigationViewActivity extends BasicActivity implements Na
             return;
         }
 
-        if(fragment == landingFragment){
+        if(fragment.getHost().equals(landingFragment.getHost())){
             super.onBackPressed();
             return;
         }

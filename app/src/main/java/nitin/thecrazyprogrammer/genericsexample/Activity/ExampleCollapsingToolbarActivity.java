@@ -23,7 +23,7 @@ public class ExampleCollapsingToolbarActivity extends CollapsingToolbarActivity 
     protected void customizeCollapsingHeader(FrameLayout root) {
 
         ((TextView) root.findViewById(R.id.text)).setText("Hello World!");
-        ((ImageView) root.findViewById(R.id.image)).setImageResource(R.drawable.cloud_new);
+        ((ImageView) root.findViewById(R.id.image)).setImageResource(R.drawable.android);
     }
 
     @Override

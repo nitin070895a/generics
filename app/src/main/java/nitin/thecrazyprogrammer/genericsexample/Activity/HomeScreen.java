@@ -50,7 +50,7 @@ public class HomeScreen extends NavigationViewActivity{
 
     @Override
     protected void customizeNavHeader(View header) {
-        ((ImageView) header.findViewById(R.id.image)).setImageResource(R.drawable.cloud_new);
+        ((ImageView) header.findViewById(R.id.image)).setImageResource(R.drawable.android);
     }
 
     @Override
