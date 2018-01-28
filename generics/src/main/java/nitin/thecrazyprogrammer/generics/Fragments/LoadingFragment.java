@@ -41,7 +41,7 @@ public abstract class LoadingFragment extends BasicFragment{
         nonAvailabilityHolder = new NonAvailabilityHolder(getContext(), view);
         nonAvailabilityHolder.setVisibility(View.GONE);
         nonAvailabilityHolder.setImage(R.drawable.cloud_new);
-        nonAvailabilityHolder.setButton(getContext().getString(nitin.thecrazyprogrammer.common.R.string.retry), new View.OnClickListener() {
+        nonAvailabilityHolder.setButton(getContext().getString(R.string.retry), new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 load();
