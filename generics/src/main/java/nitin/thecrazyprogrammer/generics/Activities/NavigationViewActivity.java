@@ -1,6 +1,8 @@
 package nitin.thecrazyprogrammer.generics.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -67,10 +69,8 @@ public abstract class NavigationViewActivity extends BasicActivity implements Na
     @Override
     public void onBackPressed() {
 
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout.closeDrawer(GravityCompat.START);
+        if(closeDrawer())
             return;
-        }
 
         if(!backToLandingFragment){
             super.onBackPressed();
@@ -93,6 +93,11 @@ public abstract class NavigationViewActivity extends BasicActivity implements Na
         return onNavItemSelected(item);
     }
 
+    protected void openActivity(Intent intent){
+        startActivity(intent);
+        closeDrawer();
+    }
+
     protected void openFragment(String title, Fragment fragment){
 
         this.fragment = fragment;
@@ -106,9 +111,17 @@ public abstract class NavigationViewActivity extends BasicActivity implements Na
         if (title != null)
             getToolbar().setTitle(title);
 
-        if (drawerLayout.isDrawerOpen(GravityCompat.START))
-            drawerLayout.closeDrawer(GravityCompat.START);
+        closeDrawer();
+    }
 
+    protected boolean closeDrawer(){
+
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
+            return true;
+        }
+
+        return false;
     }
 
     /**
