@@ -75,6 +75,7 @@ public class HomeScreen extends NavigationViewActivity{
             case R.id.wFragment : openFragment(item.getTitle().toString(), new ExampleWebViewFragment()); break;
             case R.id.tFragment : openFragment(item.getTitle().toString(), new ExampleTabbedFragment()); break;
             case R.id.cActivity : startActivity(new Intent(this, ExampleCollapsingToolbarActivity.class)); break;
+            case R.id.aboutActivity : startActivity(new Intent(this, About.class)); break;
 
 
             default: return false;
