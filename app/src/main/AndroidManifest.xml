@@ -19,6 +19,7 @@
         <activity android:name=".Activity.ExampleWebViewActivity"/>
         <activity android:name=".Activity.ExampleCollapsingToolbarActivity"/>
         <activity android:name=".Activity.HomeScreen"/>
+        <activity android:name=".Activity.IntroScreen"/>
 
         <activity android:name=".Activity.SplashScreen">
             <intent-filter>

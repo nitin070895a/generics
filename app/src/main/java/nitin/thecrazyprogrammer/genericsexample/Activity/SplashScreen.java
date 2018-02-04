@@ -17,7 +17,7 @@ public class SplashScreen extends SplashScreenActivity{
 
     @Override
     protected Intent launchIntent(Intent splashScreenLaunchIntent) {
-        return new Intent(SplashScreen.this, HomeScreen.class);
+        return new Intent(SplashScreen.this, IntroScreen.class);
     }
 
     @Override
