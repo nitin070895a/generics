@@ -36,4 +36,9 @@
         android:icon="@drawable/android"
         android:title="Collapsing Toolbar Activity"/>
 
+    <item
+        android:id="@+id/aboutActivity"
+        android:icon="@drawable/android"
+        android:title="About Activity"/>
+
 </menu>
