@@ -1,13 +1,17 @@
 package nitin.thecrazyprogrammer.generics.Activities;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import nitin.thecrazyprogrammer.generics.R;
@@ -28,6 +32,8 @@ import nitin.thecrazyprogrammer.generics.R;
  * <li>Back press from tool bar</li>
  * <li>Finds and initialize the toolbar</li>
  * <li>Sets title for the toolbar which you can change from the child activity of this class</li>
+ * <li>Gives snackbar functionality</li>
+ * <li>Gives log methods</li>
  * </ol>
  *<br>
  * <b>Note</b> : SetContentView should not be used
@@ -38,6 +44,7 @@ public abstract class BasicActivity extends AppCompatActivity{
 
     private String TAG = this.getClass().getSimpleName();
     private Toolbar toolbar;
+    private Snackbar snackbar;
 
     protected boolean doubleBackToExit = false;
     private boolean doubleBackToExitPressedOnce = false;
@@ -140,7 +147,6 @@ public abstract class BasicActivity extends AppCompatActivity{
         return activityTitle;
     }
 
-
     /**
      * Displays log with the Activity tag in Log.e()
      * @param msg The message to be logged
@@ -194,4 +200,75 @@ public abstract class BasicActivity extends AppCompatActivity{
 
         Log.w(TAG, "" + msg);
     }
+
+    private void setSnackTextColor(int color){
+
+        View sbView = snackbar.getView();
+        TextView textView = (TextView) sbView.findViewById(android.support.design.R.id.snackbar_text);
+        textView.setTextColor(color);
+    }
+
+    /**
+     * Displays a snack bar at the bottom of the screen
+     * @param message the message to be shown in the snackbar
+     * @param duration the duration in which the snackbar will be visible
+     */
+    public void showSnackBar(String message, int duration){
+
+        snackbar = Snackbar.make(findViewById(android.R.id.content), activityTitle, duration);
+        snackbar.setText(message);
+        setSnackTextColor(Color.WHITE);
+        snackbar.show();
+    }
+
+    /**
+     * Displays a snack bar at the bottom of the screen
+     * @param message the message to be shown in the snackbar
+     * @param color the color of the text in the snackbar
+     * @param duration the duration in which the snackbar will be visible
+     */
+    public void showSnackBar(String message, int color, int duration){
+
+        snackbar = Snackbar.make(findViewById(android.R.id.content), activityTitle, duration);
+        snackbar.setText(message);
+        setSnackTextColor(color);
+        snackbar.show();
+    }
+
+    /**
+     * Displays a snack bar at the bottom of the screen
+     * @param message the message to be shown in the snackbar
+     * @param actionText the text of the action
+     * @param action the task to be performed on clicking the action
+     * @param duration the duration in which the snackbar will be visible
+     */
+    public void showSnackBar(String message, String actionText, View.OnClickListener action, int duration){
+
+        snackbar = Snackbar.make(findViewById(android.R.id.content), activityTitle, duration);
+        snackbar.setText(message);
+        setSnackTextColor(Color.WHITE);
+        snackbar.setActionTextColor(Color.WHITE);
+        snackbar.setAction(actionText, action);
+        snackbar.show();
+    }
+
+    /**
+     * Displays a snack bar at the bottom of the screen
+     * @param message the message to be shown in the snackbar
+     * @param actionText the text of the action
+     * @param action the task to be performed on clicking the action
+     * @param textColor the color of the text in the snackbar
+     * @param actionColor the color of the action text in the snackbar
+     * @param duration the duration in which the snackbar will be visible
+     */
+    public void showSnackBar(String message, String actionText, View.OnClickListener action, int textColor, int actionColor, int duration){
+
+        snackbar = Snackbar.make(findViewById(android.R.id.content), activityTitle, duration);
+        snackbar.setText(message);
+        snackbar.setAction(actionText, action);
+        setSnackTextColor(textColor);
+        snackbar.setActionTextColor(actionColor);
+        snackbar.show();
+    }
+
 }
