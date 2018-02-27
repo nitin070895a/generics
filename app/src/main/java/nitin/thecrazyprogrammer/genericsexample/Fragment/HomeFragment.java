@@ -2,6 +2,7 @@ package nitin.thecrazyprogrammer.genericsexample.Fragment;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -42,6 +43,27 @@ public class HomeFragment extends BasicFragment{
         makeButton("Tabbed Activity", ExampleTabbedActivity.class);
         makeButton("Collapsing Toolbar Activity", ExampleCollapsingToolbarActivity.class);
         makeButton("Nav Drawer Activity", HomeScreen.class);
+        makeButton("Show Snack bar", new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+
+                ((HomeScreen)getContext()).showSnackBar("This is a Snackbar", Snackbar.LENGTH_SHORT);
+            }
+        });
+        makeButton("Snackbar with action", new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                ((HomeScreen)getContext()).showSnackBar("With action", "Click", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        ((HomeScreen)getContext()).showSnackBar("You clicked some action", getResources().getColor(R.color.yellow), Snackbar.LENGTH_SHORT);
+                    }
+                }, getResources().getColor(R.color.white), getResources().getColor(R.color.colorAccent), Snackbar.LENGTH_SHORT);
+            }
+        });
     }
 
     private void makeButton(String title, final Class activity){
@@ -60,6 +82,19 @@ public class HomeFragment extends BasicFragment{
                     ((Activity)getContext()).finish();
             }
         });
+
+        root.addView(button);
+    }
+
+    private void makeButton(String title, View.OnClickListener onClick){
+
+        Button button = new Button(getContext());
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        params.setMargins(20, 20, 20, 20);
+        button.setLayoutParams(params);
+
+        button.setText(title);
+        button.setOnClickListener(onClick);
 
         root.addView(button);
     }
