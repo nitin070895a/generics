@@ -35,7 +35,7 @@ public abstract class LoadingFragment extends BasicFragment{
         progressBar = (ProgressBar) view.findViewById(R.id.progress_bar);
         layout = (FrameLayout) view.findViewById(R.id.layout);
 
-        View innerView = getLayoutInflater().inflate(setInnerLayout(), null);
+        View innerView = getLInflater().inflate(setInnerLayout(), null);
         layout.addView(innerView);
 
         nonAvailabilityHolder = new NonAvailabilityHolder(getContext(), view);

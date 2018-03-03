@@ -65,7 +65,7 @@ public abstract class BasicFragment extends Fragment{
         return this.context;
     }
 
-    protected LayoutInflater getLayoutInflater() {
+    protected LayoutInflater getLInflater() {
         return layoutInflater;
     }
 
