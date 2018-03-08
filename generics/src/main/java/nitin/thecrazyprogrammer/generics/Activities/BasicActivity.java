@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -44,6 +45,7 @@ public abstract class BasicActivity extends AppCompatActivity{
 
     private String TAG = this.getClass().getSimpleName();
     private Toolbar toolbar;
+    private AppBarLayout appBar;
     private Snackbar snackbar;
 
     protected boolean doubleBackToExit = false;
@@ -57,6 +59,7 @@ public abstract class BasicActivity extends AppCompatActivity{
         setContentView(setLayout());
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
+        appBar = (AppBarLayout) findViewById(R.id.appBar);
         setSupportActionBar(toolbar);
         activityTitle = setActivityTitle();
         getSupportActionBar().setTitle(activityTitle);
@@ -141,6 +144,14 @@ public abstract class BasicActivity extends AppCompatActivity{
      */
     protected Toolbar getToolbar() {
         return toolbar;
+    }
+
+    /**
+     * Gets the AppBarLayout of the activity
+     * @return AppBarLayout of the activity
+     */
+    protected AppBarLayout getAppBar() {
+        return appBar;
     }
 
     public String getActivityTitle() {

@@ -7,8 +7,8 @@ android {
     defaultConfig {
         minSdkVersion 15
         targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        versionCode 4
+        versionName "1.1"
     }
     buildTypes {
         release {
@@ -28,5 +28,5 @@ dependencies {
     compile "com.android.support:support-v4:$rootProject.ext.support_version"
     compile "com.android.support:recyclerview-v7:$rootProject.ext.support_version"
 
-    compile 'com.github.nitin070895a:common:4084c786bc'
+    compile 'com.github.nitin070895a:common:1.0'
 }
