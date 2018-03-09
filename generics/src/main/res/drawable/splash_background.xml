@@ -5,10 +5,12 @@
         <color android:color="@color/colorPrimary"/>
     </item>
 
-    <item>
-        <bitmap
-            android:gravity="center"
-            android:src="@drawable/android"/>
-    </item>
+    <item
+        android:id="@+id/icon"
+        android:drawable="@drawable/android"
+        android:height="80dp"
+        android:width="80dp"
+        android:bottom="40dp"
+        android:gravity="center"/>
 
 </layer-list>

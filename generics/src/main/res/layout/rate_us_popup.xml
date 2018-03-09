@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/root"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/_5dp"
+    android:paddingEnd="@dimen/_5dp"
+    android:paddingLeft="@dimen/_5dp"
+    android:paddingRight="@dimen/_5dp"
+    android:paddingStart="@dimen/_5dp">
+
+    <ImageView
+        android:id="@+id/cross"
+        android:layout_width="@dimen/_20dp"
+        android:layout_height="@dimen/_20dp"
+        android:layout_gravity="end|right"
+        android:layout_marginEnd="@dimen/_8dp"
+        android:layout_marginRight="@dimen/_8dp"
+        android:layout_marginTop="@dimen/_8dp"
+        android:alpha="0.5"
+        android:background="?selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_cross"
+        android:tint="@color/colorPrimary"/>
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_10dp"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:text="Love using this app?"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_16sp"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_10dp"
+        android:layout_marginLeft="@dimen/_10dp"
+        android:layout_marginRight="@dimen/_10dp"
+        android:layout_marginStart="@dimen/_10dp"
+        android:layout_marginTop="@dimen/_5dp"
+        android:alpha="0.85"
+        android:gravity="center"
+        android:text="Yes, rate us on play store"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_14sp"/>
+
+    <FrameLayout
+        android:layout_width="@dimen/_250dp"
+        android:layout_height="@dimen/_70dp"
+        android:layout_marginTop="@dimen/_10dp">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50dp"
+            android:src="@drawable/five_stars"/>
+
+        <ImageView
+            android:id="@+id/hand"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="left"
+            android:layout_marginTop="@dimen/_30dp"
+            android:src="@drawable/hand_image"
+            android:visibility="invisible"/>
+
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/rate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_20dp"
+        android:text="Rate us now"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_10dp"
+        android:layout_marginLeft="@dimen/_10dp"
+        android:layout_marginRight="@dimen/_10dp"
+        android:layout_marginStart="@dimen/_10dp"
+        android:alpha="0.85"
+        android:gravity="center"
+        android:text="No, tell us how we can improve"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_14sp"/>
+
+    <Button
+        android:id="@+id/feedback"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_20dp"
+        android:text="Leave feedback"/>
+
+    <TextView
+        android:id="@+id/later"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_10dp"
+        android:layout_marginEnd="@dimen/_10dp"
+        android:layout_marginLeft="@dimen/_10dp"
+        android:layout_marginRight="@dimen/_10dp"
+        android:layout_marginStart="@dimen/_10dp"
+        android:alpha="0.5"
+        android:background="?selectableItemBackgroundBorderless"
+        android:gravity="center"
+        android:text="Maybe Later"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_14sp"/>
+
+</LinearLayout>

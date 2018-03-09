@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import nitin.thecrazyprogrammer.generics.Activities.NavigationViewActivity;
+import nitin.thecrazyprogrammer.generics.Dialogs.RateUsPopup;
 import nitin.thecrazyprogrammer.genericsexample.Fragment.ExampleBasicFragment;
 import nitin.thecrazyprogrammer.genericsexample.Fragment.ExampleLoadingFragment;
 import nitin.thecrazyprogrammer.genericsexample.Fragment.ExampleRecyclerViewFragment;
@@ -35,6 +36,29 @@ public class HomeScreen extends NavigationViewActivity{
 
         doubleBackToExit = true;
         backToLandingFragment = true;
+
+        new RateUsPopup(this, null, true, "00:00:01", "RATE_US", new RateUsPopup.RateUsPopupListener() {
+
+            @Override
+            public void onRate() {
+
+            }
+
+            @Override
+            public void onCrossed() {
+
+            }
+
+            @Override
+            public void onFeedback() {
+
+            }
+
+            @Override
+            public void onLater() {
+
+            }
+        }).show();
 
     }
 
