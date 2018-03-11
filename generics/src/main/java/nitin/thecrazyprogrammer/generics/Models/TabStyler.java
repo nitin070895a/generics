@@ -1,6 +1,9 @@
 package nitin.thecrazyprogrammer.generics.Models;
 
+import android.content.Context;
+
 import nitin.thecrazyprogrammer.common.R;
+import nitin.thecrazyprogrammer.common.ThemeHelper;
 
 /**
  * Created by Nitin Khurana on 1/24/2018.
@@ -31,5 +34,16 @@ public class TabStyler {
     public int tab_image_highlight_tint = R.color.colorAccent;
 
     public float tab_highlight_scale = 1.2f;
+
+    public TabStyler(Context context){
+        ThemeHelper themeHelper = new ThemeHelper();
+
+        tab_layout_background = themeHelper.fetchPrimaryColor(context);
+        tab_indicator_color = themeHelper.fetchAccentColor(context);
+        tab_text_color = themeHelper.fetchTextColorPrimary(context);
+        tab_image_tint = themeHelper.fetchTextColorPrimary(context);
+        tab_text_highlight_color = themeHelper.fetchAccentColor(context);
+        tab_image_highlight_tint = themeHelper.fetchAccentColor(context);
+    }
 
 }

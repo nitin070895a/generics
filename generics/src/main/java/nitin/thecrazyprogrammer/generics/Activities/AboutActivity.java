@@ -37,6 +37,8 @@ public abstract class AboutActivity extends FullScreenActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.about_activity);
 
+        translucentStatusBar = true;
+
         root = (LinearLayout) findViewById(R.id.root);
         title = (TextView) findViewById(R.id.title);
         version = (TextView) findViewById(R.id.version);
@@ -46,7 +48,9 @@ public abstract class AboutActivity extends FullScreenActivity{
         title.setText(setAppName());
         version.setText("Version " + setVersion());
         logo.setImageResource(setLogo());
-        root.setBackgroundColor(getResources().getColor(setBackgroundColor()));
+        int backColor = setBackgroundColor();
+        if(backColor != 0)
+            root.setBackgroundColor(setBackgroundColor());
 
         buttons = setButtons();
         for(AboutButton aboutButton : buttons)
@@ -79,7 +83,7 @@ public abstract class AboutActivity extends FullScreenActivity{
     }
 
     protected int setBackgroundColor(){
-        return R.color.white;
+        return 0;
     }
 
     protected abstract String setAppName();

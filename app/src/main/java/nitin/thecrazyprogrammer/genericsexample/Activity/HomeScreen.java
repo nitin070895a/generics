@@ -4,11 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.AppBarLayout;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import nitin.thecrazyprogrammer.generics.Activities.NavigationViewActivity;
 import nitin.thecrazyprogrammer.generics.Dialogs.RateUsPopup;
@@ -100,7 +101,6 @@ public class HomeScreen extends NavigationViewActivity{
             case R.id.tFragment : openFragment(item.getTitle().toString(), new ExampleTabbedFragment()); break;
             case R.id.cActivity : startActivity(new Intent(this, ExampleCollapsingToolbarActivity.class)); break;
             case R.id.aboutActivity : startActivity(new Intent(this, About.class)); break;
-
 
             default: return false;
         }

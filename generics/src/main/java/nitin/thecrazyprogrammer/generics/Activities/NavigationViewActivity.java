@@ -150,6 +150,10 @@ public abstract class NavigationViewActivity extends BasicActivity implements Na
         fab.setOnClickListener(onClickListener);
     }
 
+    public NavigationView getNavigationView() {
+        return navigationView;
+    }
+
     protected int setNavHeaderView(){
         return 0;
     }

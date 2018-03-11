@@ -1,5 +1,6 @@
 package nitin.thecrazyprogrammer.generics.Fragments;
 
+import android.annotation.SuppressLint;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.content.ContextCompat;
@@ -45,24 +46,26 @@ public abstract class TabbedFragment extends LoadingFragment{
     private ViewPager viewPager;
 
     private FloatingActionButton fab;
-    protected TabStyler tabStyler = new TabStyler();
+    protected TabStyler tabStyler;
 
     @Override
     protected int setInnerLayout() {
         return R.layout.tabbed_fragment;
     }
 
+    @SuppressLint("ResourceAsColor")
     @Override
     protected void onCreateView(View view) {
         super.onCreateView(view);
+        tabStyler = new TabStyler(getContext());
 
         viewPager = (ViewPager) view.findViewById(R.id.viewPager);
         tabLayout = (TabLayout) view.findViewById(R.id.tabLayout);
         setStyleProperties();
 
-        tabLayout.setBackgroundColor(getResources().getColor(tabStyler.tab_layout_background));
-        tabLayout.setTabTextColors(getResources().getColor(tabStyler.tab_text_color), getResources().getColor(tabStyler.tab_text_highlight_color));
-        tabLayout.setSelectedTabIndicatorColor(getResources().getColor(tabStyler.tab_indicator_color));
+        tabLayout.setBackgroundColor(tabStyler.tab_layout_background);
+        tabLayout.setTabTextColors(tabStyler.tab_text_color,tabStyler.tab_text_highlight_color);
+        tabLayout.setSelectedTabIndicatorColor(tabStyler.tab_indicator_color);
 
         fab = (FloatingActionButton) view.findViewById(R.id.fab);
 
@@ -248,11 +251,12 @@ public abstract class TabbedFragment extends LoadingFragment{
      * This is how a normal tab would look like
      * @param i the tab position
      */
+    @SuppressLint("ResourceAsColor")
     protected void normalTabDesign(int i){
 
-        ((ImageView) (tabLayout.getTabAt(i).getCustomView().findViewById(R.id.icon))).setColorFilter(ContextCompat.getColor(getContext(),tabStyler.tab_image_tint));
+        ((ImageView) (tabLayout.getTabAt(i).getCustomView().findViewById(R.id.icon))).setColorFilter(tabStyler.tab_image_tint);
         if(tabStyler.tabsStyle == TabsStyle.TAB_STYLE_IMAGE_WITH_TEXT)
-            ((TextView) (tabLayout.getTabAt(i).getCustomView().findViewById(R.id.title))).setTextColor(getResources().getColor(tabStyler.tab_text_color));
+            ((TextView) (tabLayout.getTabAt(i).getCustomView().findViewById(R.id.title))).setTextColor(tabStyler.tab_text_color);
         tabLayout.getTabAt(i).getCustomView().findViewById(R.id.icon).setScaleY(1.0f);
         tabLayout.getTabAt(i).getCustomView().findViewById(R.id.icon).setScaleX(1.0f);
     }
@@ -263,11 +267,12 @@ public abstract class TabbedFragment extends LoadingFragment{
      * This is how a highlighted tab would look like
      * @param i the tab number to be highlighted
      */
+    @SuppressLint("ResourceAsColor")
     protected void highlightTabDesign(int i){
 
-        ((ImageView) (tabLayout.getTabAt(i).getCustomView().findViewById(R.id.icon))).setColorFilter(ContextCompat.getColor(getContext(), tabStyler.tab_image_highlight_tint));
+        ((ImageView) (tabLayout.getTabAt(i).getCustomView().findViewById(R.id.icon))).setColorFilter(tabStyler.tab_image_highlight_tint);
         if(tabStyler.tabsStyle == TabsStyle.TAB_STYLE_IMAGE_WITH_TEXT)
-            ((TextView) (tabLayout.getTabAt(i).getCustomView().findViewById(R.id.title))).setTextColor(getResources().getColor(tabStyler.tab_text_highlight_color));
+            ((TextView) (tabLayout.getTabAt(i).getCustomView().findViewById(R.id.title))).setTextColor(tabStyler.tab_text_highlight_color);
         tabLayout.getTabAt(i).getCustomView().findViewById(R.id.icon).setScaleY(tabStyler.tab_highlight_scale);
         tabLayout.getTabAt(i).getCustomView().findViewById(R.id.icon).setScaleX(tabStyler.tab_highlight_scale);
     }

@@ -60,6 +60,7 @@ public abstract class BasicActivity extends AppCompatActivity{
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         appBar = (AppBarLayout) findViewById(R.id.appBar);
+        
         setSupportActionBar(toolbar);
         activityTitle = setActivityTitle();
         getSupportActionBar().setTitle(activityTitle);
@@ -150,7 +151,7 @@ public abstract class BasicActivity extends AppCompatActivity{
      * Gets the AppBarLayout of the activity
      * @return AppBarLayout of the activity
      */
-    protected AppBarLayout getAppBar() {
+    public AppBarLayout getAppBar() {
         return appBar;
     }
 

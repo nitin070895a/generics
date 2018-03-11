@@ -1,5 +1,6 @@
 package nitin.thecrazyprogrammer.genericsexample.Fragment;
 
+import android.annotation.SuppressLint;
 import android.support.design.widget.TabLayout;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
@@ -29,17 +30,11 @@ public class ExampleTabbedFragment extends TabbedFragment {
         setUpTabs(tabs); // if you want to initialize after an API call then create an API call request here and call this method in OnPost of the API Request
     }
 
+    @SuppressLint("ResourceAsColor")
     @Override
     protected void setStyleProperties() {
 
         tabStyler.tab_highlight_scale = 1.2f;
-        tabStyler.tab_image_highlight_tint = R.color.colorAccent;
-        tabStyler.tab_image_tint = R.color.white;
-        tabStyler.tab_indicator_color = R.color.colorAccent;
-        tabStyler.tab_layout_background = R.color.colorPrimary;
-        tabStyler.tab_text_color = R.color.white;
-        tabStyler.tab_text_highlight_color = R.color.colorAccent;
-
         tabStyler.tabGravity = TabStyler.TabsGravity.TABS_GRAVITY_TOP;
         tabStyler.tabsStyle = TabStyler.TabsStyle.TAB_STYLE_IMAGE_WITH_TEXT;
     }
