@@ -40,8 +40,8 @@ public class TabStyler {
 
         tab_layout_background = themeHelper.fetchPrimaryColor(context);
         tab_indicator_color = themeHelper.fetchAccentColor(context);
-        tab_text_color = themeHelper.fetchTextColorPrimary(context);
-        tab_image_tint = themeHelper.fetchTextColorPrimary(context);
+        tab_text_color = context.getResources().getColor(R.color.white);
+        tab_image_tint = context.getResources().getColor(R.color.white);
         tab_text_highlight_color = themeHelper.fetchAccentColor(context);
         tab_image_highlight_tint = themeHelper.fetchAccentColor(context);
     }

@@ -2,7 +2,6 @@ package nitin.thecrazyprogrammer.generics.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -14,6 +13,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.MenuItem;
 import android.view.View;
 
+import nitin.thecrazyprogrammer.generics.Fragments.TabbedFragment;
 import nitin.thecrazyprogrammer.generics.R;
 
 /**
@@ -93,9 +93,10 @@ public abstract class NavigationViewActivity extends BasicActivity implements Na
         return onNavItemSelected(item);
     }
 
-    protected void openActivity(Intent intent){
+    protected void openActivity(Intent intent, boolean closeNavDrawer){
         startActivity(intent);
-        closeDrawer();
+        if (closeNavDrawer)
+            closeDrawer();
     }
 
     protected void openFragment(String title, Fragment fragment){
@@ -110,6 +111,13 @@ public abstract class NavigationViewActivity extends BasicActivity implements Na
 
         if (title != null)
             getToolbar().setTitle(title);
+
+
+        if(fragment instanceof TabbedFragment)
+            getAppBar().setTargetElevation(0);
+        else
+            getAppBar().setTargetElevation(10);
+
 
         closeDrawer();
     }

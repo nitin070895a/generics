@@ -34,10 +34,9 @@ public abstract class BasicFragmentActivity<FragmentType extends BasicFragment> 
         fragment = setFragment();
 
         if(fragment instanceof TabbedFragment){
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+            getAppBar().setTargetElevation(0);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
                 getToolbar().setElevation(0);
-                getAppBar().setElevation(0);
-            }
         }
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment, fragment).commit();
