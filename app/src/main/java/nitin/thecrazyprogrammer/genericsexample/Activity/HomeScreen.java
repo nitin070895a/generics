@@ -93,7 +93,7 @@ public class HomeScreen extends NavigationViewActivity{
 
         switch (item.getItemId()){
 
-            case R.id.fHome : openFragment(item.getTitle().toString(), new HomeFragment()); break;
+            case R.id.fHome : openFragment(item.getTitle().toString(), this.getLandingFragment()); break;
             case R.id.bFragment : openFragment(item.getTitle().toString(), new ExampleBasicFragment()); break;
             case R.id.lFragment : openFragment(item.getTitle().toString(), new ExampleLoadingFragment()); break;
             case R.id.rFragment : openFragment(item.getTitle().toString(), new ExampleRecyclerViewFragment()); break;

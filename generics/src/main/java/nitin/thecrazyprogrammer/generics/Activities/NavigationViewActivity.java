@@ -11,7 +11,6 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
-import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.MenuItem;
@@ -81,7 +80,7 @@ public abstract class NavigationViewActivity extends BasicActivity implements Na
             return;
         }
 
-        if(fragment.getHost().equals(landingFragment.getHost())){
+        if(fragment.equals(landingFragment)){
             super.onBackPressed();
             return;
         }
@@ -122,13 +121,12 @@ public abstract class NavigationViewActivity extends BasicActivity implements Na
             getAppBar().setTargetElevation(0);
         }
         else{
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && getAppBar().getTargetElevation() == 0) {
                 StateListAnimator stateListAnimator = new StateListAnimator();
                 stateListAnimator.addState(new int[0], ObjectAnimator.ofFloat(getAppBar(), "elevation", getResources().getDimensionPixelOffset(R.dimen.appbar_elevation)));
                 getAppBar().setStateListAnimator(stateListAnimator);
             }
         }
-
 
         closeDrawer();
     }
@@ -191,4 +189,7 @@ public abstract class NavigationViewActivity extends BasicActivity implements Na
         return fragment;
     }
 
+    public Fragment getLandingFragment() {
+        return landingFragment;
+    }
 }
