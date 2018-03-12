@@ -1,6 +1,9 @@
 package nitin.thecrazyprogrammer.generics.Activities;
 
+import android.animation.ObjectAnimator;
+import android.animation.StateListAnimator;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -8,6 +11,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.MenuItem;
@@ -113,10 +117,17 @@ public abstract class NavigationViewActivity extends BasicActivity implements Na
             getToolbar().setTitle(title);
 
 
-        if(fragment instanceof TabbedFragment)
+        if(fragment instanceof TabbedFragment){
+
             getAppBar().setTargetElevation(0);
-        else
-            getAppBar().setTargetElevation(10);
+        }
+        else{
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                StateListAnimator stateListAnimator = new StateListAnimator();
+                stateListAnimator.addState(new int[0], ObjectAnimator.ofFloat(getAppBar(), "elevation", getResources().getDimensionPixelOffset(R.dimen.appbar_elevation)));
+                getAppBar().setStateListAnimator(stateListAnimator);
+            }
+        }
 
 
         closeDrawer();
