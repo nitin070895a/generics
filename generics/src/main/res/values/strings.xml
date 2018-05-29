@@ -1,6 +1,13 @@
 <resources>
+    <item name="settings_info_content" type="id"/>
+
     <string name="app_name">Generics</string>
 
     <string name="navigation_drawer_open">Navigation drawer opene</string>
     <string name="navigation_drawer_close">Navigation drawer close</string>
+
+
+    <string name="apply_defaults">Apply defaults</string>
+    <string name="apply_defaults_desc">Your saved settings will be lost! Do you want to continue.</string>
+
 </resources>

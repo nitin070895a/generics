@@ -2,6 +2,7 @@ package nitin.thecrazyprogrammer.genericsexample.Activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.View;
 
 import java.util.ArrayList;
 
@@ -38,7 +39,12 @@ public class About extends AboutActivity{
     protected ArrayList<AboutButton> setButtons() {
 
         ArrayList<AboutButton> buttons = new ArrayList<>();
-        buttons.add(new AboutButton("Licenses", ExampleRecyclerViewActivity.class));
+        buttons.add(new AboutButton("Licenses", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        }));
 
         return buttons;
     }

@@ -1,12 +1,8 @@
 package nitin.thecrazyprogrammer.generics.Activities;
 
-import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
-import android.support.v4.util.Pair;
-import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -54,10 +50,10 @@ public abstract class AboutActivity extends FullScreenActivity{
 
         buttons = setButtons();
         for(AboutButton aboutButton : buttons)
-            makeButton(aboutButton.getName(), aboutButton.getActivity());
+            makeButton(aboutButton.getName(), aboutButton.getOnClickListener());
     }
 
-    private void makeButton(String title, final Class activity){
+    private void makeButton(String title, View.OnClickListener onClickListener){
 
         Button button = new Button(this);
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -72,12 +68,7 @@ public abstract class AboutActivity extends FullScreenActivity{
         typedArray.recycle();
 
         button.setText(title);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(AboutActivity.this, activity));
-            }
-        });
+        button.setOnClickListener(onClickListener);
 
         ll_buttons.addView(button);
     }
@@ -97,16 +88,16 @@ public abstract class AboutActivity extends FullScreenActivity{
     public class AboutButton{
 
         private String name;
-        private Class activity;
+        private View.OnClickListener onClickListener;
 
-        public AboutButton(String name, Class activity){
+        public AboutButton(String name, View.OnClickListener onClickListener){
 
             this.name = name;
-            this.activity = activity;
+            this.onClickListener = onClickListener;
         }
 
-        public Class getActivity() {
-            return activity;
+        public View.OnClickListener getOnClickListener() {
+            return onClickListener;
         }
 
         public String getName() {

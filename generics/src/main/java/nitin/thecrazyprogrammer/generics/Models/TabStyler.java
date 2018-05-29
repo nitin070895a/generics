@@ -1,6 +1,7 @@
 package nitin.thecrazyprogrammer.generics.Models;
 
 import android.content.Context;
+import android.graphics.Color;
 
 import nitin.thecrazyprogrammer.common.R;
 import nitin.thecrazyprogrammer.common.ThemeHelper;
@@ -40,8 +41,8 @@ public class TabStyler {
 
         tab_layout_background = themeHelper.fetchPrimaryColor(context);
         tab_indicator_color = themeHelper.fetchAccentColor(context);
-        tab_text_color = context.getResources().getColor(R.color.white);
-        tab_image_tint = context.getResources().getColor(R.color.white);
+        tab_text_color = Color.WHITE;
+        tab_image_tint = Color.WHITE;
         tab_text_highlight_color = themeHelper.fetchAccentColor(context);
         tab_image_highlight_tint = themeHelper.fetchAccentColor(context);
     }
