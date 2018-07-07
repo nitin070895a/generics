@@ -104,6 +104,11 @@ public abstract class NavigationViewActivity extends BasicActivity implements Na
 
     protected void openFragment(String title, Fragment fragment){
 
+        if (title!= null && title.equals(getSupportActionBar().getTitle())) {
+            closeDrawer();
+            return;
+        }
+
         this.fragment = fragment;
 
         try {
