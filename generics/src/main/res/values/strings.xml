@@ -6,6 +6,7 @@
     <string name="navigation_drawer_open">Navigation drawer opene</string>
     <string name="navigation_drawer_close">Navigation drawer close</string>
 
+    <string name="loading_more">Loading more…</string>
 
     <string name="apply_defaults">Apply defaults</string>
     <string name="apply_defaults_desc">Your saved settings will be lost! Do you want to continue.</string>
