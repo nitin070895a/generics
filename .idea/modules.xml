@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/GenericsExample.iml" filepath="$PROJECT_DIR$/GenericsExample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GenericsLibrary.iml" filepath="$PROJECT_DIR$/GenericsLibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/generics/generics.iml" filepath="$PROJECT_DIR$/generics/generics.iml" />
     </modules>
