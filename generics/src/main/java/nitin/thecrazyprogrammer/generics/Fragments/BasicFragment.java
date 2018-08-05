@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,6 +47,16 @@ public abstract class BasicFragment extends Fragment{
         this.layoutInflater = inflater;
         onCreateView(view);
         return view;
+    }
+
+    /**
+     * Reload the current fragment,
+     * If the parent is activity pass {@link Fragment#getFragmentManager()},
+     * if the parent is fragment pass {@link Fragment#getChildFragmentManager()}
+     * @param fragmentManager the activity of fragment's fragment manager
+     */
+    public void reload(FragmentManager fragmentManager){
+        fragmentManager.beginTransaction().detach(this).attach(this).commit();
     }
 
     /**
