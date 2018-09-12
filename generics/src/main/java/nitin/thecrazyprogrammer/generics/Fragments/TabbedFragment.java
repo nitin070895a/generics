@@ -71,6 +71,7 @@ public abstract class TabbedFragment extends LoadingFragment{
 
         applyGravity(tabStyler.tabGravity);
 
+        load();
     }
 
     /**

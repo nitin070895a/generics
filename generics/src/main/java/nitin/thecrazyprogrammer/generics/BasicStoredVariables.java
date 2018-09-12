@@ -58,6 +58,6 @@ public abstract class BasicStoredVariables {
      * @return The result value of the searched preference
      */
     protected String getStringValue(SharedPreferences defSharedPrefs, int id, int def_id){
-        return defSharedPrefs.getString(context.getString(id), String.valueOf(context.getResources().getInteger(def_id)));
+        return defSharedPrefs.getString(context.getString(id), context.getResources().getString(def_id));
     }
 }

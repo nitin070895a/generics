@@ -27,6 +27,7 @@ public abstract class BasicRecyclerViewFragment<AdapterType extends RecyclerView
 
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
 
+        load();
     }
 
     @Override

@@ -43,11 +43,18 @@ public abstract class CollapsingToolbarActivity extends BasicActivity implements
         appBar.addOnOffsetChangedListener(this);
         customizeCollapsingHeader(collapsingHeader);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment, setFragmentBelowCollapsingToolbar()).commit();
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                onFragmentReady();
+
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment, setFragmentBelowCollapsingToolbar()).commit();
+
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        onFragmentReady();
+                    }
+                }, BasicFragmentActivity.WAIT_DELAY);
             }
         }, BasicFragmentActivity.WAIT_DELAY);
     }

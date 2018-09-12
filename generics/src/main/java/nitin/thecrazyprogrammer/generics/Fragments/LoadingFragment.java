@@ -48,8 +48,6 @@ public abstract class LoadingFragment extends BasicFragment{
             }
         });
         nonAvailabilityHolder.setMessage(getContext().getString(R.string.no_internet));
-
-        load();
     }
 
     /**
@@ -60,7 +58,7 @@ public abstract class LoadingFragment extends BasicFragment{
         return progressBar;
     }
 
-    private void showLoading(){
+    protected void showLoading(){
 
         layout.setVisibility(View.INVISIBLE);
         progressBar.setVisibility(View.VISIBLE);
@@ -69,13 +67,9 @@ public abstract class LoadingFragment extends BasicFragment{
 
     protected void load(){
         isLoaded = false;
+
         showLoading();
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                loadOrReload();
-            }
-        }, LOADING_MIN_THRESHOLD);
+        loadOrReload();
     }
 
     /**
