@@ -22,7 +22,7 @@ public abstract class AboutActivity extends FullScreenActivity{
     private LinearLayout root;
     private TextView title;
     private TextView version;
-    private ImageView logo;
+    protected ImageView logo;
 
     private LinearLayout ll_buttons;
 
@@ -31,9 +31,27 @@ public abstract class AboutActivity extends FullScreenActivity{
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//        Colorify.colorify(this);
         setContentView(R.layout.about_activity);
 
         translucentStatusBar = true;
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//
+//            getWindow().setNavigationBarColor(Color.TRANSPARENT);
+//
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//
+//                getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+//
+//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//
+//                    if (Colorify.isLightTheme(this)) {
+//                        // If the theme has white background, make nav button theme lite
+//                        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
+//                    }
+//                }
+//            }
+//        }
 
         root = (LinearLayout) findViewById(R.id.root);
         title = (TextView) findViewById(R.id.title);
